@@ -127,6 +127,11 @@ class BinaryNode extends Node
             ? $right->__toValue()
             : $right;
 
+        if ((!is_string($right) && is_null($left))
+        || (!is_string($left) && is_null($right))) {
+            return null;
+        }
+
         switch ($operator) {
             case '|':
                 return $left | $right;
