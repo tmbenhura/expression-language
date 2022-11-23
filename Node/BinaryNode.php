@@ -160,6 +160,9 @@ class BinaryNode extends Node
             case 'in':
                 return \in_array($left, $right);
             case '+':
+                if (is_string($left) || is_string($right)) {
+                    return (is_null($left) ? 'null' : $left) . (is_null($right) ? 'null' : $right);
+                }
                 return $left + $right;
             case '-':
                 return $left - $right;
