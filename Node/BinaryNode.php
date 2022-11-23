@@ -119,6 +119,14 @@ class BinaryNode extends Node
 
         $right = $this->nodes['right']->evaluate($functions, $values);
 
+        $left = is_object($left) && array_search('__toValue', get_class_methods($left)) !== false
+            ? $left->__toValue()
+            : $left;
+
+        $right = is_object($right) && array_search('__toValue', get_class_methods($right)) !== false
+            ? $right->__toValue()
+            : $right;
+
         switch ($operator) {
             case '|':
                 return $left | $right;
