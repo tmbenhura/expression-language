@@ -49,6 +49,10 @@ class UnaryNode extends Node
     {
         $value = $this->nodes['node']->evaluate($functions, $values);
 
+        $value = is_object($value) && array_search('__toValue', get_class_methods($value)) !== false
+            ? $value->__toValue()
+            : $value;
+
         return match ($this->attributes['operator']) {
             'not',
             '!' => !$value,
