@@ -1,7 +1,7 @@
 {
-    "name": "symfony/expression-language",
+    "name": "tmbenhura/expression-language",
     "type": "library",
-    "description": "Provides an engine that can compile and evaluate expressions",
+    "description": "A patch of symfony expression language",
     "keywords": [],
     "homepage": "https://symfony.com",
     "license": "MIT",
